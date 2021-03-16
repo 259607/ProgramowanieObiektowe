@@ -5,6 +5,8 @@
 	      - Liczba wierszy: liczba kolumn:
 	   - Edycja wartości w tablicy
 	      - nr wiersza: nr kolumny:
+	   - Kasowanie wartości w tablicy:
+	      - nr wiersza: nr kolumny:
 	   - Możliwość wyświetlenia tablicy
 
 
@@ -15,6 +17,7 @@
 	   - main.cpp
 	      - Funkcja główna pobierająca pozostałe moduły
 	   - tablica.cpp
+	      - tablica dynamiczna
 	      - Funkcja pobierająca wartości (rozm. tablicy) od użytkownika
 	         - l.wierszy: l.kolumn:
 	      - Funkcja edytująca zawartość danej komórki
@@ -22,5 +25,6 @@
 	   - tablica_wyw.cpp
 	      - Funkcja wyświetlająca zawartość tablicy
 	   - menu.cpp
-	      - wybór działania
-	      - interakcja z uzytkownikiem
+	      - Wybór działania za pomocą funkcji switch: *zmień rozmiar 			tablicy *aktualizuj zawartość tablicy *wyświetl tablicę 			*zakończ działanie programu
+	      - Po wykonaniu działań wróć do menu
+	      
