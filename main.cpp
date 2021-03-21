@@ -1,12 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <tablica.h>
-#include <tablica_wysw.h>
-#include <menu.h>
+#include "paczka.h"
 
 using namespace std;
 
 int main()
 {
     menu();
+
+    return 0;
 }

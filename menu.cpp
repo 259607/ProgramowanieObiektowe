@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include "paczka.h"
 
 using namespace std;
 
@@ -7,17 +9,17 @@ int opcja;
 void menu()
 {
     int x =0;
-    cout << "\t *do czego sluzy program, opis*" << endl;
+    double **arkusz;
+    cout << "\t Program arkusza kalulacyjnego" << endl;
     cout << "\t MENU" << endl;
-    cout << "-----------------------------------" << endl;
+    cout << "---------------------------------------" << endl;
     cout << "Wybierz opcje:" << endl << endl;
     cout << "1. Nowy arkusz." << endl;
-    cout << "2. " << endl;
-    cout << "3. " << endl;
-    cout << "4. " << endl;
-    cout << "5. " << endl;
-    cout << "6. " << endl;
-
+    cout << "2. Zmiana rozmiaru arkusza." << endl;
+    cout << "3. Zmiana wartosci arkusza." << endl;
+    cout << "4. Wyswietlenie arkusza." << endl;
+    cout << "5. ZAKONCZ." << endl;
+    cout << "\t Wpisz numer opcji:";
 
     cin >> opcja;
 
@@ -25,11 +27,13 @@ void menu()
     {
             case 1:
             {
-                int x, y;
-                cout << "Podaj wielkosc arkusza: ";
-                cin >> x;
-                cin >> y;
-                //funkcja tworzenia arkusza
+                cout << "Podaj liczbe wierszy: ";
+                cin >> rozmiar_1;
+
+                cout << "\nPodaj liczbe kolumn: ";
+                cin >> rozmiar_2;
+
+                arkusz = tworzenie_arkusza(rozmiar_1,rozmiar_2);
             }
             break;
 
@@ -41,29 +45,32 @@ void menu()
 
             case 3:
             {
-                cout << "3. ";
+                int x,y;
+                cout << "Wybierz komorke ktora chcesz zmienic" << endl;
+                
+                cout << "Podaj wiersz: ";
+                cin >> y;
+                
+                cout << "\nPodaj kolumne: ";
+                cin >> x;
+
+                edycja_arkusza(arkusz, x, y);
             }
             break;
 
             case 4:
             {
-                cout << "4. ";
+                wyswietl(arkusz, rozmiar_1, rozmiar_2);
             }
             break;
 
-            case 5;
+            case 5:
             {
-                cout << "5. ";
+                exit(0);
             }
             break;
 
-            case 6;
-            {
-                cout << "6. ";
-            }
-            break;
-
-            default: cout << "Wybrana opcja nie istnieje!";
+            default: cout << "Wybrana opcja nie istnieje!" << endl;
     }
-    system cls;
+    system("clear");
 }

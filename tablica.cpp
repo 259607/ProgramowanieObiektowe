@@ -1,23 +1,20 @@
 #include <iostream>
+#include "paczka.h"
 
 using namespace std;
 
-double** tworzenie_arkusza(int x, int y)
+double** tworzenie_arkusza(int rozmiar_1, int rozmiar_2)
 {
-    double** arkusz = new double*[x];
-    for(int i = 0; i<y; i++)
-    {
-        arkusz [i] = new double[y];
-    }
-    return arkusz;
+    double** tab = new double*[rozmiar_1];
+    
+    for (int i = 0; i < rozmiar_1; i++) tab [i] = new double[rozmiar_2];
+    
+    return tab;
 }
 
-void zmiana_wartosci(double** arkusz)
+int rozmiar_1, rozmiar_2;
+
+void edycja_arkusza(double** arkusz, int rozmiar_x, int rozmiar_y)
 {
-    int x,y;
-    cout << "Podaj komorke, ktora chcesz zmienic:" << endl;
-    cin >> x;
-    cin >> y;
-    cout << "Jaka nowa wartosc ma przyjac?" << endl;
-    cin >> arkusz [x][y];
+    cin >> arkusz[rozmiar_x][rozmiar_y];
 }
