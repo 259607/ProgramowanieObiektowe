@@ -27,4 +27,14 @@
 	   - menu.cpp
 	      - Wybór działania za pomocą funkcji switch: *zmień rozmiar 			tablicy *aktualizuj zawartość tablicy *wyświetl tablicę 			*zakończ działanie programu
 	      - Po wykonaniu działań wróć do menu
-	      
+
+3. Pliki
+
+	- wprowadzanie danych:
+	   - jeśli arkusz nie istnieje, tworzy się nowy arkusz z danymi, które wpisaliśmy do tablicy
+	   - jeśli plik arkusza już istnieje możemy:
+	      - wczytać istniejący arkusz
+	      - zapisać nowy arkusz
+	
+	- zapis danych:
+	   - odbywa się za pomoca funkcji, do pliku
