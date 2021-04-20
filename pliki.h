@@ -1,12 +1,17 @@
 /// @file
 
-/** Funkcja wczytaj_plik tworzy arkusz z pliku tekstowego o podanych rozmiarach i wartosiach
-*@param[in,out] arkusz Funkcja pobiera arkus do edycji
-*/
-void wczytaj_plik(double**);
+/** \brief Funkcja wczytajaca z pliku dane dotyczace tablicy
+ * 
+ * Dane zawieraja szerokosc i wysokosc tabeli oraz dane w poszczegolnych komorkach
+ * 
+ * @param arkusz Glowny arkusz programu zawierajacy wszystkie dane
+ */ 
+double** wczytajPlik(int* wiersze, int* kolumny);
 
-/** Funkcja zapisz_plik zapisuje rozmiar arkusza i wartosci do pliku tekstowego
-* @param[in] arkusz Funkcja pobiera arkusz do zapisu
-*/
-void zapisz_plik(double**);
-
+/** \brief Funkcja zapisujaca dane do pliku
+ * 
+ * Dane zawieraja szerokosc i wysokosc tabeli oraz dane w poszczegolnych komorkach
+ * 
+ * @param arkusz Glowny arkusz programu zawierajacy wszystkie dane
+ */
+void zapiszPlik(double **arkusz, int wiersze, int kolumny);

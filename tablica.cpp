@@ -1,20 +1,34 @@
 #include <iostream>
-#include "paczka.h"
-
+#include "tablica.h"
 using namespace std;
 
-double** tworzenie_arkusza(int rozmiar_1, int rozmiar_2)
+
+
+double** stworzTablica(int wiersze, int kolumny)
 {
-    double** tab = new double*[rozmiar_1];
-    
-    for (int i = 0; i < rozmiar_1; i++) tab [i] = new double[rozmiar_2];
-    
+    double** tab = new double*[wiersze];
+    for (int i = 0; i < wiersze; i++)
+    {
+        tab[i] = new double[kolumny];
+    }
     return tab;
 }
 
-int rozmiar_1, rozmiar_2;
-
-void edycja_arkusza(double** arkusz, int rozmiar_x, int rozmiar_y)
+void wpiszTablica(double** tablica, int wspolrzedna_x, int wspolrzedna_y, int wprowadzonaWartosc)
 {
-    cin >> arkusz[rozmiar_x][rozmiar_y];
+    tablica[wspolrzedna_x-1][wspolrzedna_y-1] = wprowadzonaWartosc;
 }
+
+void aktualizujTablica(int* tablica)
+{
+    int ktoryElement, element;
+    cout << "Ktory element tablicy chcesz zaktualizowac?: ";
+    cin >> ktoryElement;
+    cout << endl;
+    cout << "Zaktualizuj element: ";
+    cin >> element;
+    element = tablica[ktoryElement];
+}
+
+
+

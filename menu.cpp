@@ -1,76 +1,101 @@
 #include <iostream>
-#include <cstdlib>
-#include "paczka.h"
-
+#include "tablica.h"
+#include "tablica_wysw.h"
+#include "menu.h"
+#include "pliki.h"
 using namespace std;
 
-int opcja;
 
-void menu()
+void menuTablica()
 {
-    int x =0;
-    double **arkusz;
-    cout << "\t Program arkusza kalulacyjnego" << endl;
-    cout << "\t MENU" << endl;
-    cout << "---------------------------------------" << endl;
-    cout << "Wybierz opcje:" << endl << endl;
-    cout << "1. Nowy arkusz." << endl;
-    cout << "2. Zmiana rozmiaru arkusza." << endl;
-    cout << "3. Zmiana wartosci arkusza." << endl;
-    cout << "4. Wyswietlenie arkusza." << endl;
-    cout << "5. ZAKONCZ." << endl;
-    cout << "\t Wpisz numer opcji:";
-
-    cin >> opcja;
-
-    switch(opcja)
+int wiersze, kolumny;
+double** arkusz;
+    while (1)
     {
+        int wybor;
+        cout << "Menu programu" << endl
+             << "1. Utworz tablice" << endl
+             << "2. Aktualizuj elementy tablicy" << endl
+             << "3. Wyswietlanie elementow tablicy" << endl
+             << "4. Wczytywanie elementow tablicy z pliku" << endl
+             << "5. Zapisywanie elementow tablicy do pliku" << endl
+             << "Wybierz operacje, ktora chcesz wykonac: ";
+        cin >> wybor;
+        cout << endl;
+
+        switch (wybor)
+        {
             case 1:
             {
-                cout << "Podaj liczbe wierszy: ";
-                cin >> rozmiar_1;
-
-                cout << "\nPodaj liczbe kolumn: ";
-                cin >> rozmiar_2;
-
-                arkusz = tworzenie_arkusza(rozmiar_1,rozmiar_2);
+                cout << "1. Utworz tablice" << endl;
+                utworzTablice(&wiersze, &kolumny, &arkusz);
+                cout << endl;
+                break;
             }
-            break;
 
             case 2:
             {
-                cout <<"2. ";
+                cout << "2. Wpisz elementy tablicy" << endl;
+                wpiszDane(arkusz);
+                cout << endl;
+                break;
             }
-            break;
 
             case 3:
             {
-                int x,y;
-                cout << "Wybierz komorke ktora chcesz zmienic" << endl;
-                
-                cout << "Podaj wiersz: ";
-                cin >> y;
-                
-                cout << "\nPodaj kolumne: ";
-                cin >> x;
-
-                edycja_arkusza(arkusz, x, y);
+                cout << "3. Wyswietlanie elementow tablicy" << endl;
+                wyswietlTablice(arkusz, wiersze, kolumny);
+                cout << endl;
+                break;
             }
-            break;
 
             case 4:
             {
-                wyswietl(arkusz, rozmiar_1, rozmiar_2);
+                cout << "4. Wczytywanie elementow tablicy z pliku" << endl;
+                arkusz = wczytajPlik(&wiersze, &kolumny);
+                cout << endl;
+                break;
             }
-            break;
 
             case 5:
             {
-                exit(0);
+                cout << "5. Zapisywanie elementow tablicy do pliku" << endl;
+                zapiszPlik(arkusz, wiersze, kolumny);
+                break;
             }
-            break;
-
-            default: cout << "Wybrana opcja nie istnieje!" << endl;
+            
+            case 6:
+            {
+            	exit(0);
+            }break;
+            
+    	default:
+    	{
+    		cout << "Nie ma takiej mozliwosci.";
+    	}
+      }
     }
-    system("clear");
+}
+
+void wpiszDane(double** arkusz)
+{
+    int wiersze, kolumny;
+    double wartosc;
+    cout << "Podaj wiersz: " << endl;
+    cin >> wiersze;
+    cout << "Podaj kolumne: " << endl;
+    cin >> kolumny;
+    cout << "Podaj wartosc: " << endl;
+    cin >> wartosc;
+    wpiszTablica(arkusz, wiersze, kolumny, wartosc);
+}
+
+void utworzTablice(int* wiersze, int* kolumny, double*** arkusz)
+{
+    cout << "Wpisz ilosc wierszy: ";
+    cin >> *wiersze;
+    cout << "Wpisz ilosc kolumn: ";
+    cin >> *kolumny;
+    cout << endl;
+    *arkusz = stworzTablica(*wiersze, *kolumny);
 }

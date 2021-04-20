@@ -1,16 +1,12 @@
 #include <iostream>
-#include "paczka.h"
-
+#include "tablica_wysw.h"
 using namespace std;
 
-void wyswietl(double **arkusz, int rozmiar_1, int rozmiar_2)
+void wyswietlTablice(double** tablica, int wymiar_x, int wymiar_y)
 {
-    for(int i = 0; i < rozmiar_1; i++)
-    {
-        for(int k = 0; k < rozmiar_2; k++)
-        {
-            cout << arkusz[i][k] << " ";
-        }
-            cout << endl;
-    }
+	for (int i = 0; i < wymiar_x; i++)
+	{
+        for (int j = 0; j < wymiar_y; j++) cout << tablica[i][j] << "\t";
+        cout << endl;
+	}
 }
