@@ -1,17 +1,17 @@
-/// @file
+//!
+//! @file pliki.h
+//! @brief Wczytywanie i Zapisywanie tabeli
+//!
 
-/** \brief Funkcja wczytajaca z pliku dane dotyczace tablicy
- * 
- * Dane zawieraja szerokosc i wysokosc tabeli oraz dane w poszczegolnych komorkach
- * 
- * @param arkusz Glowny arkusz programu zawierajacy wszystkie dane
- */ 
-double** wczytajPlik(int* wiersze, int* kolumny);
+#include <fstream>
+#include "tablica.h"
 
-/** \brief Funkcja zapisujaca dane do pliku
- * 
- * Dane zawieraja szerokosc i wysokosc tabeli oraz dane w poszczegolnych komorkach
- * 
- * @param arkusz Glowny arkusz programu zawierajacy wszystkie dane
- */
-void zapiszPlik(double **arkusz, int wiersze, int kolumny);
+/// Funkcja wczytuje dane do tabeli z pliku
+/// @param arr Referencja do modyfikowanej tabeli
+/// @fileName Nazwa pliku
+void readFromFile(Array &arr, std::string fileName);
+
+/// Funkcja zapisuje dane do pliku
+/// @param arr Referencja do modyfikowanej tabeli
+/// @fileName Nazwa pliku
+void saveToFile(Array &arr, std::string fileName);
